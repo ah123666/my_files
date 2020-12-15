@@ -1,0 +1,186 @@
+setting:
+{
+	"caret_extra_bottom": 3,
+	"caret_extra_top": 3,
+	"caret_extra_width": 2,
+	"color_scheme": "Packages/ayu/ayu-dark.sublime-color-scheme",
+	"expand_tabs_on_save": true,
+	"font_face": "Consolas",
+	"font_size": 12,
+	"highlight_line": true,
+	"hot_exit": false,
+	"ignored_packages":
+	[
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"SublimeLinter-cppcheck",
+		"SublimeLinter-cpplint",
+		"SublimeLinter-flake8",
+		"SublimeLinter-gcc",
+		"Vintage"
+	],
+	"line_padding_bottom": 2,
+	"line_padding_top": 2,
+	"margin": 4,
+	"open_files_in_new_window": false,
+	"remember_open_files": false,
+	"show_encoding": true,
+	"tab_size": 4,
+	"theme": "Seti.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"update_check": false
+}
+
+key:
+[
+
+    { "keys": ["f5"], "caption": "SublimeREPL: Python - RUN current file",
+        "command": "run_existing_window_command", "args":
+        {
+             "id": "repl_python_run",
+             "file": "config/Python/Main.sublime-menu"
+        }
+    },
+
+    { "keys": ["f1"], "caption": "SublimeREPL: Python",
+        "command": "run_existing_window_command", "args":
+        {
+            "id": "repl_python",
+            "file": "config/Python/Main.sublime-menu"
+        }
+    },
+
+    { "keys": ["ctrl+shift+c"], "command": "cancel_build" },
+    { "keys": ["ctrl+e"], "command": "move_to", "args": {"to": "eol"}},
+    { "keys": ["ctrl+h"], "command": "move_to", "args": {"to": "bol"}},
+
+]
+
+anaconda setting:
+{
+    "python_interpreter":"D:/Software/Anaconda/python.exe",
+    "suppress_word_completions":true,
+    "suppress_explicit_completions":true,
+    "comlete_parameters":true,
+    "swallow_startup_errors":true,//关了sublime开启的报错弹窗
+
+    "anaconda_linting":true,
+    "anaconda_linting_behaviour": "always",
+    "anaconda_linter_delay": 0.5,
+    "anaconda_linter_persistent": false,
+    "anaconda_gutter_marks": true,
+    "anaconda_gutter_theme": "basic",
+    "anaconda_linter_mark_style": "squiggly_underline",
+    "anaconda_linter_underlines": true,
+    "anaconda_linter_phantoms": false,
+    "anaconda_linter_phantoms_theme": "phantom",
+    "anaconda_linter_phantoms_template": "default",
+    "anaconda_linter_show_errors_on_save": false,
+    "pep8_ignore": ["E309", "E501", "E402", "W293"],
+ }
+
+package:
+anaconda
+ayu
+c++ completions
+converttouft8
+seti_ui
+sidebarenhancement
+sublimerepl
+terminal
+sublime linter 
+sublime linter gcc
+
+
+sublime linter setting:
+// SublimeLinter Settings - User
+{
+    "linters": {
+        // Python错误提示
+        "flake8": {
+            "lint_mode": "background",
+            "filter_errors": ["W291", "W293", "W391", "E302", "E303", "E305"],
+            "styles": [
+                {
+                    "mark_style": "stippled_underline",
+                    "scope": "region.yellowish",
+                    "types": ["warning"]
+                },
+                {
+                    "mark_style": "squiggly_underline",
+                    "scope": "region.redish",
+                    "types": ["error"]
+                }
+            ]
+        },
+        // "cpplint": {
+        //     "lint_mode": "background",
+        //     "filter_errors": ["[3]", "[4]", "[5]"],
+        //     "styles": [
+        //         {
+        //             "mark_style": "stippled_underline",
+        //             "scope": "region.yellowish",
+        //             "types": ["warning"]
+        //         },
+        //         {
+        //             "mark_style": "squiggly_underline",
+        //             "scope": "region.redish",
+        //             "types": ["error"]
+        //         }
+        //     ]
+        // },
+
+        // C语言错误提示
+        "gcc": {
+            "disable": false,
+            "executable": ["gcc"],
+            "args": ["-fsyntax-only", "-std=c90"],
+            "I": [
+                "${file_path}/include",
+                "${folder}/include",
+                "/usr/local/include",
+            ],
+            "excludes": [],
+            "styles": [
+                {
+                    "mark_style": "stippled_underline",
+                    "scope": "region.yellowish",
+                    "types": ["warning"]
+                },
+                {
+                    "mark_style": "squiggly_underline",
+                    "scope": "region.redish",
+                    "types": ["error"]
+                }
+            ]
+        },
+
+        // C++错误提示
+        "g++": {
+            "disable": false,
+            "executable": ["g++"],
+            "args": ["-fsyntax-only", "-std=c++17"],
+            "I": [
+                "${file_path}/include",
+                "${folder}/include",
+                "/usr/local/include",
+            ],
+            "excludes": [],
+            "styles": [
+                {
+                    "mark_style": "stippled_underline",
+                    "scope": "region.yellowish",
+                    "types": ["warning"]
+                },
+                {
+                    "mark_style": "squiggly_underline",
+                    "scope": "region.redish",
+                    "types": ["error"]
+                }
+            ]
+        }
+    }
+}
+
+
+

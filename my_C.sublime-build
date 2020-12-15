@@ -1,0 +1,48 @@
+{
+    //只编译当前文件
+    "cmd": ["gcc", "${file}", "-fexec-charset=gbk", "-o", "${file_path}/${file_base_name}"],
+    "file_regex": "^(..[^:]*):([0-9]+):?([0-9]+)?:? (.*)$",
+    "working_dir": "${file_path}",
+    "selector": "source.c++", 
+    "shell": true,
+    "encoding": "utf-8", 
+
+    "variants":
+    [
+        //只编译当前文件
+        {
+            "name": "Single_File_Build_Only",
+            "cmd": ["gcc", "${file}", "-fexec-charset=gbk", "-o", "${file_path}/${file_base_name}"],
+        },
+
+        //编译并运行当前文件，在Sublime中显示结果
+        {
+            "name": "Single_File_Run_In_Sublime",
+            "cmd": ["gcc", "${file}", "-fexec-charset=gbk", "-o", "${file_path}/${file_base_name}", "&", "cmd", "/c", "${file_path}/${file_base_name} & echo."]
+        },
+
+        //编译并运行当前文件，在Command中显示结果
+        {
+            "name": "Single_File_Run_In_Command",
+            "cmd": ["gcc", "${file}", "-fexec-charset=gbk", "-o", "${file_path}/${file_base_name}", "&", "start", "cmd", "/c", "${file_path}/${file_base_name} & echo. & pause"],
+        },
+
+        //编译当前文件夹下所有c文件,生成project.exe
+        {
+            "name": "Project_Build_Only",
+            "cmd": ["gcc", "${file_path}/*.c", "-fexec-charset=gbk", "-o", "${file_path}/project"]
+        },
+
+        //编译并运行当前文件夹下所有c文件，在Sublime中显示结果
+        {
+            "name": "Project_Run_In_Sublime",
+            "cmd": ["gcc", "${file_path}/*.c", "-fexec-charset=gbk", "-o", "${file_path}/project", "&", "cmd", "/c", "${file_path}/project & echo."]
+        },
+
+        //编译并运行当前文件夹下所有c文件，在Command中显示结果
+        {
+            "name": "Project_Run_In_Command",
+            "cmd": ["gcc", "${file_path}/*.c", "-fexec-charset=gbk", "-o", "${file_path}/project", "&", "start", "cmd", "/c", "${file_path}/project & echo. & pause"]
+        }
+    ]
+}

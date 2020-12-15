@@ -1,0 +1,15 @@
+{
+    "cmd": ["python", "${file_name}"], //在sublime text中显示
+    "file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+    "selector": "source.py", 
+    "shell": true, 
+    // "encoding": "gbk", 
+    "env": {"PYTHONIOENCODING": "utf-8"},
+    "variants":
+    [
+        {
+            "name": "Run_In_Command",
+            "cmd": ["start", "cmd", "/c", "python ${file_name} & echo. & pause"], //在命令行显示
+        }
+    ]
+}
